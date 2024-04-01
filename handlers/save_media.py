@@ -50,10 +50,6 @@ async def forward_to_channel(bot: Client, message: Message, editable: Message):
 
 async def save_batch_media_in_channel(bot: Client, editable: Message, message_ids: list):
     try:
-        if editable.reply_to_message.from_user.id not in Config.OTHER_USERS_CAN_SAVE_FILE:
-            await editable.reply_text("You are not authorized to save files.")
-            return
-
         message_ids_str = ""
         for message_id in message_ids:
             message = await bot.get_messages(chat_id=editable.chat.id, message_ids=message_id)
@@ -106,9 +102,6 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
 
 async def save_media_in_channel(bot: Client, editable: Message, message: Message):
     try:
-        if message.from_user.id not in Config.OTHER_USERS_CAN_SAVE_FILE:
-            await editable.reply_text("You are not authorized to save files.")
-            return
         forwarded_msg = await message.forward(Config.DB_CHANNEL)
         file_er_id = str(forwarded_msg.id)
         await forwarded_msg.reply_text(

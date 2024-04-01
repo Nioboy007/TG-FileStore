@@ -78,8 +78,7 @@ async def start(bot: Client, cmd: Message):
                         InlineKeyboardButton("About Dev", callback_data="aboutdevs")
                     ],
                     [
-                        InlineKeyboardButton("Bots Channel", url="https://t.me/TeleRoidGroup"),
-                        InlineKeyboardButton(" Support Group", url="https://t.me/TeleRoid14")
+                        InlineKeyboardButton("Bots Channel", url="https://t.me/botio_devs")
                     ]
                 ]
             )
